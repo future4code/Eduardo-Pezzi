@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
     <title>Periféricos LaBenu Gamer</title>
 </head>
 <body>
-    <h1><a href="index.html">&nbsp;LaBenu Gamer</a></h1>
+    <header>
+        <div id="logo">
+            <a href="index.html"><img src="LaBenuGamer.png" alt="LaBenu Gamer"></a>
+        </div>
+        <nav>
+            <li class="menu"><a href="estoque.html">Controle de Estoque</a></li>
+            <li class="menu"><a href="adicionar.html">Adicionar Produto</a></li>
+            <li class="menu"><a href="funcionarios.html">Funcionários</a></li>
+        </nav>
+    </header>
+   <section>
+       <img src="controlefull.png" alt="Mundo Gamer LaBenu" id="imgsection">
+   </section>
+    <h3 id="tituloadicione">Adicione Produtos do Mundo Gamer LaBenu</h3>
     <br />
-    <h3>Adicione Produtos do Mundo Gamer LaBenu</h3>
-    <br />
-    <form action="#" id="add_produto">
+    <form action="#" id="marginform">
         <label for="produto">Produto:</label>
             <input type="text" id="produto" name="produto"><br /><br />
         <label for="imagem">Imagem:</label>
@@ -20,7 +32,11 @@
         <label for="quantidade">Quantidade:</label>
             <input type="text" id="quantidade" name="quantidade"><br /><br />
         <label for="descricao">Descrição:</label>
-            <input type="text" id="descricao" name="descricao">
+            <input type="text" id="descricao" name="descricao"><br /><br />
+        <button type="submit" id="enviar">Enviar</button>
     </form>
+    <footer>
+        <img src="socialnetworkbar.png" alt="Siga nossas redes sociais" class="socialnetworks">
+    </footer>
 </body>
 </html>
