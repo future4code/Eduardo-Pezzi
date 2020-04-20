@@ -9,6 +9,10 @@
     padding: 0;
 }
 
+html {
+   /* font-family: 'Roboto', sans-serif; ;*/
+}
+
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
@@ -149,4 +153,11 @@ td button:active {
 td button:hover {
     background-color: #ddbf3b;
 
+}
+
+#inputborder {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid black;
 }
