@@ -131,8 +131,22 @@ td button {
     background-color: #635a3d
 }
 
+#back-button:active {
+    background-color: #161512
+}
+
 .imagemmenor {
     width: 50px;
     height: auto;
     background-color: white;
+}
+
+td button:active {
+    background-color: #ddbf3b;
+
+}
+
+td button:hover {
+    background-color: #ddbf3b;
+
 }
