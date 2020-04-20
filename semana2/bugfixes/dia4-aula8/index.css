@@ -133,3 +133,8 @@ td button {
 #back-button:hover {
     background-color: #635a3d
 }
+
+.imagemmenor {
+    width: 50px;
+    height: auto;
+}
