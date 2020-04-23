@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    max-width: 800px;
+    height: 700px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
+}
+
+#head {
+    width: 100vw;
+    height: 20vh;
+    background-color: red;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+#section1 {
+    width: 30vw;
+    height: 20vh;
+    background-color: blue;
+    grid-column: 1/2;
+    
+}
+
+#section2 {
+    width: 30vw;
+    height: 20vh;
+    background-color: blue;
+    grid-column: 2/3;
+}
+
+#section3 {
+    width: 30vw;
+    height: 20vh;
+    background-color: yellow;
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
+
+#section4 {
+    width: 30vw;
+    height: 20vh;
+    background-color: yellow;
+    grid-row: ;
+}
+
+#section5 {
+    width: 30vw;
+    height: 20vh;
+    background-color: green;
+}
+
+#section6 {
+    width: 30vw;
+    height: 20vh;
+    background-color: green;
+}
