@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #fff;
+}
+
+.main-container {
+    display: grid;
+    gap: 0.3vh;
+
+    grid-template-columns: 
+        
+        [grid-start] 5vh
+        [content-start] 50vh
+        [content-end] 50vh
+        [grid-end] 1fr;
+
+    grid-template-rows: 
+
+        11vh
+        1vh
+        25vh
+        25vh
+        25vh
+        11vh;
+
+    grid-template-areas: 
+        "header header header header"
+        "linha linha linha linha"
+        "margem main main article"
+        "margem main main article2"
+        "margem main main article3"
+        "footer footer footer footer";
+}
+
+#header, #footer {
+    grid-column: grid-star / grid-end;
+}
+
+#header {
+    grid-area: header;
+    background-color: #222;
+
+}
+
+#logo {
+    font-family: 'Spartan', sans-serif;
+    font-size: 2.8vw;
+}
+
+#linha {
+    grid-area: linha;
+    background-color: pink;
+}
+
+#margem {
+    grid-area: margem;
+    background-color: purple;
+}
+
+#main {
+    grid-area: main;
+}
+
+#article {
+    grid-area: article;
+    width: 20vw;
+}
+
+#article2 {
+    grid-area: article2;
+    width: 20vw;
+}
+
+#article3 {
+    grid-area: article3;
+}
+
+#footer {
+    grid-area: footer;
+    background-color: peru;
+}
+
+
