@@ -6,86 +6,68 @@
 html, body {
     width: 100%;
     height: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #fff;
+    font-size: 20px;
+    font-family: 'Spartan', sans-serif;
 }
 
-.main-container {
-    display: grid;
+.main-wrapper{
     height: 100%;
-    column-gap: 0.5vh;
+    display: grid;
 
-    grid-template-columns: 
+        grid-template-columns: 
+            
+            /* || */
+            [left-line-margin] 0.3vw
+            [main-content] 1fr
+            [dividing-linev] 0.5vh
+            [right-side-content-newgrid] 1fr;
+
+        grid-template-rows: 
+
+            /* = */
+            [main-header] 10vh
+            [dividing-line] 0.5vh
+            [main-content] 1fr
+            [footer] 10vh;
+
+        grid-template-areas: 
         
-        [grid-start] 3vh
-        [content-start] 36vh
-        [content-end] 59vh
-        [grid-end] 1fr;
+            "header header header header"
+            "hline hline hline hline"
+            "vline mcontent vlinec newgrid"
+            "footer footer footer footer";
 
-    grid-template-rows: 
-
-        [Cabecalho] 11vh
-        [Linha] 1vh
-        [Conteudo1] 29vh
-        [Conteudo2] auto
-        [Conteudo3] 1fr
-        [rodape] 11vh;
-
-    grid-template-areas: 
-        "header header header header"
-        "linha linha linha linha"
-        "margem main main article"
-        "margem main main article2"
-        "margem texto texto article3"
-        "footer footer footer footer";
-}
-
-#header, #footer {
-    grid-column: grid-star / grid-end;
 }
 
 #header {
     grid-area: header;
+    display: flex;
     background-color: #222;
-
 }
 
-#logo {
-    font-family: 'Spartan', sans-serif;
-    font-size: 2.8vw;
+#header p{
+    color: #fff;
+    font-size: 2rem;
+    align-self: center;
+    margin-left: 1.1vw;
 }
 
-#linha {
-    grid-area: linha;
-    background-color: pink;
+#dividing-line-h {
+    grid-area: hline;
+    background-color: maroon;
 }
 
-#margem {
-    grid-area: margem;
-    background-color: purple;
+#dividing-line-v {
+    grid-area: vlinec;
 }
 
-#texto {
-    grid-area: texto;
-    color: #222;
+#left-line-margin {
+    grid-area: vline;
 }
 
-#main {
-    grid-area: main;
-}
-
-#article {
-    grid-area: article;
-    width: 20vw;
-}
-
-#article2 {
-    grid-area: article2;
-    width: 20vw;
-}
-
-#article3 {
-    grid-area: article3;
+#main-content {
+    grid-area: mcontent;
+    background-color: #D2D3D5;
 }
 
 #footer {
@@ -94,3 +76,55 @@ html, body {
 }
 
 
+/* New-Grid */
+
+    #right-side-content-newgrid {
+        grid-area: newgrid;
+        display: grid;
+
+        grid-template-columns: 
+
+            /* || */
+            [newgrid-side-content-dividing-vertical-left] 1fr
+            /*[newgride-centerline-dividingv] 0.5vh*/
+            [newgrid-side-content-dividing-vertical-right] 1fr;
+
+        grid-template-rows: 
+        
+            /* = */
+            [newgrid-side-content-dividing-horizontal-upper] 1fr
+            /*[newgrid-centerline-dividingh] 0.4vw*/
+            [newgrid-side-content-dividing-horizontal-bottom] 1fr;
+
+        grid-template-areas:
+            
+            "newgrid-upper-left  newgrid-upper-right"
+            "newgrid-bottom-left  newgrid-bottom-right";
+
+}
+
+        #newgrid-upper-left {
+            grid-area: newgrid-upper-left;
+            /*background-color: lawngreen;*/
+}
+
+        #newgrid-upper-right {
+            grid-area: newgrid-upper-right;
+            /*background-color: lightcoral;*/
+}
+
+        #newgrid-bottom-left {
+            grid-area: newgrid-bottom-left;
+            /*background-color: limegreen;*/
+}
+
+        #newgrid-bottom-right {
+            grid-area: newgrid-bottom-right;
+            /*background-color: maroon;*/
+}
+/* end New Grid */
+
+.video {
+    max-width: 100%;
+    height: auto;
+}
