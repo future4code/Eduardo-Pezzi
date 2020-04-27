@@ -8,6 +8,11 @@ html, body {
     height: 100%;
     font-size: 20px;
     font-family: 'Spartan', sans-serif;
+    font-weight: 600;
+}
+
+a, a:link, a:active, a:hover {
+    text-decoration: none;
 }
 
 .main-wrapper{
@@ -19,7 +24,7 @@ html, body {
             /* || */
             [left-line-margin] 0.3vw
             [main-content] 1fr
-            [dividing-linev] 0.5vh
+            [dividing-linev] 1vh
             [right-side-content-newgrid] 1fr;
 
         grid-template-rows: 
@@ -43,13 +48,25 @@ html, body {
     grid-area: header;
     display: flex;
     background-color: #222;
+    justify-content: space-between;
 }
 
 #header p{
     color: #fff;
     font-size: 2rem;
     align-self: center;
-    margin-left: 1.1vw;
+    margin-left: 1.2vw;
+}
+
+#form {
+    height: 4vh;
+    display: flex;
+    align-self: center;
+    margin-right: 1.2vw;
+}
+
+#form input {
+    padding: 0 0.8vw;
 }
 
 #dividing-line-h {
@@ -70,9 +87,23 @@ html, body {
     background-color: #D2D3D5;
 }
 
+#main-content p {
+    padding-top: 5vh;
+    text-align: center;
+}
+
 #footer {
+    display: flex;
     grid-area: footer;
     background-color: peru;
+   
+}
+
+#footer p {
+    margin-left: 1.2vw;
+    align-self: center;
+    font-size: 0.7rem;
+    color: palegoldenrod;
 }
 
 
@@ -101,30 +132,54 @@ html, body {
             "newgrid-upper-left  newgrid-upper-right"
             "newgrid-bottom-left  newgrid-bottom-right";
 
-}
+    }
 
         #newgrid-upper-left {
             grid-area: newgrid-upper-left;
             /*background-color: lawngreen;*/
-}
+        }
+
+        #newgrid-upper-left img{
+            width: 99%;
+
+        }
+        #newgrid-upper-left p {
+            text-align: center;
+        }
 
         #newgrid-upper-right {
             grid-area: newgrid-upper-right;
             /*background-color: lightcoral;*/
-}
+        }
+
+        #newgrid-upper-right img {
+            width: 99%;
+        }
+
+        #newgrid-upper-right p {
+            text-align: center;
+        }
 
         #newgrid-bottom-left {
             grid-area: newgrid-bottom-left;
             /*background-color: limegreen;*/
-}
+        }
+
+        #newgrid-bottom-left p {
+            text-align: center;
+        }
 
         #newgrid-bottom-right {
             grid-area: newgrid-bottom-right;
             /*background-color: maroon;*/
-}
+        }
+
+        #newgrid-bottom-right p {
+            text-align: center;
+        }
 /* end New Grid */
 
 .video {
-    max-width: 99%;
+    max-width: 98%;
     height: auto;
 }
