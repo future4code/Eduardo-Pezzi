@@ -1,4 +1,5 @@
 // Exercício 1--------------------- Comentários por trechos.
+
 /*
 const bool1 = true
 const bool2 = false
@@ -21,7 +22,8 @@ console.log("d. ", resultado)
 //Resultado: false
 
 console.log("e. ", typeof resultado)
-//Resposta: Boolean  -------------------------------------  */
+//Resposta: Boolean
+*/
 
 // Exercício 2 --------------------------------------------
 
@@ -60,6 +62,7 @@ console.log('VII. ', resultadoC)
 
 */
 
+
 /*
 
 a. O que é `array` e como se declara em `JS`?
@@ -76,6 +79,7 @@ posso consultar esse valor através do lenght.
 d. Indique todas as mensagens impressas no console.
 
 */
+
 
 /*    let fahrenheitToK = (fahrenheit - 32) * 5/9 + 273.15
       let celsiusToF = (celsius) * 9/5 + 32
@@ -153,11 +157,53 @@ d. Indique todas as mensagens impressas no console.
     a- Calcule e mostre o valor a ser pago por uma residência que consuma 280 quilowatt-hora
     b- Altere o programa para receber mais um valor: a porcentagem de desconto. 
     Calcule e mostre o valor a ser pago pela mesma residência acima considerando 15% de desconto */
-
+    /*
     const tarifa = 0.05;
     consumo = 280.00;
     console.log(consumo * tarifa);
     console.log("Com desconto de 15%, o novo valor é:", + (consumo * tarifa) * 0.85)
+    */
+
+    // Desafio Nº 1:
+
+    // A) Conversão de libra para kg:
+
+            /*
+            libra = 20;
+            libraPraKg = (libra / 2.205).toFixed(3);
+            console.log("20 libras equivalem a ", + libraPraKg ,"Kg");
+            */
+
+    //  B) Conversão de Onça(oz) para Kg:
+
+            /*
+            oz = 10.5
+            ozPraKg = (oz / 3.5274).toFixed(3);
+            console.log("10.5 Oz equivalem a", + ozPraKg, "Kg");
+            */
+
+    //  C) Conversão de Milha para metro:
+
+            /*
+            milha = 100;
+            milhaPraMetro = (milha * 1609).toFixed(3);
+            console.log("100 milhas equivalem a", + milhaPraMetro, "Metros");
+            */
+
+    //  D) Conversão de pés ft para metro:
+
+            /*
+            ft = 50;
+            ftPraMetr = (ft / 3.281).toFixed(3);
+            console.log("50ft equivalem a", + ftPraMetr, "metros")
+            */
+
+    //  G) Pedir ao usuário para entrar com o valor:
+
+            libra1 = prompt("Digite o valor em Libra a ser convertido:")
+            libraPraKg = (Number(libra1) / 2.205).toFixed(3);
+            console.log( libra1, "libras equivalem a ", + libraPraKg ,"Kg");
+
     
     
 
