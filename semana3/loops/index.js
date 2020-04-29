@@ -82,3 +82,18 @@ for (let i = 0; i < arrayOriginal.length; i++){
 }
 console.log(`Habemus novo array ${novoArray}`)
 */
+
+// Desafio 2:
+
+let acertou = 0;
+let tentativas = 0;
+
+while(acertou == 0){
+        let pensamento = prompt("Pense em um número e digite ele: ")
+        let chute = prompt("É bom de chute? Quero ver, qual o seu? ")
+        if (chute === pensamento) {
+                acertou = 1;
+                tentativas = (tentativas+1);
+        }
+console.log(`Parabéns, você acertou o chute ${chute} com ${tentativas} tentativas! `);
+}
