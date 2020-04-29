@@ -164,6 +164,7 @@ d. Indique todas as mensagens impressas no console.
     console.log("Com desconto de 15%, o novo valor é:", + (consumo * tarifa) * 0.85)
     */
 
+    //----------------------------------
     // Desafio Nº 1:
 
     // A) Conversão de libra para kg:
@@ -200,9 +201,11 @@ d. Indique todas as mensagens impressas no console.
 
     //  G) Pedir ao usuário para entrar com o valor:
 
+            /*
             libra1 = prompt("Digite o valor em Libra a ser convertido:")
             libraPraKg = (Number(libra1) / 2.205).toFixed(3);
             console.log( libra1, "libras equivalem a ", + libraPraKg ,"Kg");
+            */
 
     
     
