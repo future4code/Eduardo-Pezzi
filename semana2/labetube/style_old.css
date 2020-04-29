@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Spartan', sans-serif;
+    color: #fff;
+}
+
+.main-container {
+    display: grid;
+    height: 100%;
+    width: 100%;
+
+    grid-template-columns: 
+        
+        [left-margin] 0.4vw
+        [main-video-start] 1.1fr
+        [main-video-end] 1.1fr
+        [center-margin] 0.4vw
+        [related-videos] 0.5fr
+        [related-videos2] 0.5fr;
+
+    grid-template-rows: 
+
+        [Cabecalho] 10vh
+        [Linhah] 0.5vh
+        [Conteudo1] 1.5fr
+        [Conteudo2] 1.5fr
+        [texto] 1.25fr
+        [rodape] 10vh;
+
+    grid-template-areas: 
+        "header header header header header header"
+        "linhah linhah linhah linhah linhah linhah"
+        "margem main main linhaw article article1"
+        "margem main main linhaw article2 article2a"
+        "margem texto texto linhaw . ."
+        "footer footer footer footer footer footer";
+}
+
+#header {
+    grid-area: header;
+    background-color: #222;
+}
+
+#logo {
+    font-size: 3vw;
+    background-color: #222;
+}
+
+#linha {
+    grid-area: linhah;
+    background-color: pink;
+}
+
+#linhaw {
+    grid-area: linhaw;
+    background-color: #fff;
+}
+
+#margem {
+    grid-area: margem;
+    width: 0.5vh;
+}
+
+#texto {
+    grid-area: texto;
+    color: #222;
+}
+
+#main {
+    grid-area: main;
+}
+
+#article {
+    grid-area: article;
+    height: auto;
+}
+
+#article1 {
+    grid-area: article1;
+    height: auto;
+}
+
+#article2 {
+    grid-area: article2;
+    height: auto;
+}
+
+#article2a {
+    grid-area: article2a;
+    height: auto;
+}
+
+#footer {
+    grid-area: footer;
+    background-color: peru;
+}
