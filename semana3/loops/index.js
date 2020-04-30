@@ -85,15 +85,47 @@ console.log(`Habemus novo array ${novoArray}`)
 
 // Desafio 2:
 
+/*
 let acertou = 0;
 let tentativas = 0;
+
 
 while(acertou == 0){
         let pensamento = prompt("Pense em um número e digite ele: ")
         let chute = prompt("É bom de chute? Quero ver, qual o seu? ")
         if (chute === pensamento) {
                 acertou = 1;
-                tentativas = (tentativas+1);
-        }
-console.log(`Parabéns, você acertou o chute ${chute} com ${tentativas} tentativas! `);
-}
+                console.log(`o chute ${chute} foi certeiro`)
+        } else if (chute > pensamento) {
+                tentativas = tentativas + 1;
+                console.log("Chutou alto, tente um valor menor");
+        }else 
+        console.log("Chutou baixo, tente um valor maior")
+        tentativas = tentativas +1;
+        
+}console.log(`Você acertou com ${tentativas} tentativas, Parabéns!`)
+*/
+
+/*
+let acertou = 0;
+let tentativas = 0;
+let chute = 0;
+
+while(acertou == 0){
+        let pensamento = Math.floor((Math.random() * 10) + 1);
+        chute = prompt("É bom de chute? Quero ver, qual o seu? ");
+        tentativas +=1
+
+        if (chute == pensamento) {
+                acertou = 1;
+                console.log(`o chute ${chute} foi certeiro`);
+
+        } else if (chute > pensamento) {
+                console.log("Chutou alto, tente um valor menor");
+        }else 
+        console.log("Chutou baixo, tente um valor maior");
+        
+}console.log(`Você acertou com ${tentativas} tentativas, Parabéns!`);*/
+
+// fazer o número aleatório foi relativamente fácil, a partir do momento que precisamos alterar o valor de uma 
+// variável que receberia o valor via prompt para que receba da função math.random, todo o resto é basicamente o mesmo.
