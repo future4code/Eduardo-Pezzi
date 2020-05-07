@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h1>Cadastre sua despesa:</h1>
+  <br>
+  <section id="primeira-secao">
+  <input type="text" name="psvalor" id="psvalor" placeholder="Digite o Valor"><br>
+  <select name="opcoes" id="opcoes">
+    <option>Transporte</option>
+    <option>Lazer</option>
+    <option>Domesticas</option>
+  </select>
+  <textarea id="descricao" name="=descricao"></textarea>
+  <input type="submit" value="Cadastrar Despesa" onclick="cadastrarDespesa()">
+</section>
+
+<section id="segunda-secao">
+  <h2>Despesa detalhada</h2>
+  <br>
+  <select name="ssopcoes" id="ssopcoes">
+    <option>Transporte</option>
+    <option>Lazer</option>
+    <option>Domesticas</option>
+  </select>
+  <input type="text" id="ssvalormax" name="ssvalormax">
+  <input type="text" id="ssvalormin" name="ssvalormin">
+  <input type="submit" value="Filtrar Despesa">
+  <input type="reset" value="Limpar">
+</section>
+
+<section id="terceria-secao">
+  <h2>Extrato</h2>
+  <p>Valor Total: R$ </p>
+
+</section>
+
+</body>
+</html>
