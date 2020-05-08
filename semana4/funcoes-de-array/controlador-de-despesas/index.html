@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="index.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -10,13 +11,14 @@
   <h1>Cadastre sua despesa:</h1>
   <br>
   <section id="primeira-secao">
-  <input type="text" name="psvalor" id="psvalor" placeholder="Digite o Valor"><br>
-  <select name="opcoes" id="opcoes">
+  <input type="text" name="psvalor" id="psvalor" placeholder="Digite o Valor"><br><br>
+  <select name="opcoes" id="opcoes"><br>
     <option>Transporte</option>
     <option>Lazer</option>
     <option>Domesticas</option>
   </select>
-  <textarea id="descricao" name="=descricao"></textarea>
+  <br>
+  <textarea id="descricao" name="=descricao"></textarea><br>
   <input type="submit" value="Cadastrar Despesa" onclick="cadastrarDespesa()">
 </section>
 

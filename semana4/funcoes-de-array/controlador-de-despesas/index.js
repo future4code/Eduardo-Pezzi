@@ -15,14 +15,19 @@ function cadastrarDespesa() {
         descricao: descricao,
     }
 
-    if (valor || tipoDespesa || descricao == "") {
+    if (valor == "" || tipoDespesa == "" || descricao == "") {
 
-        console.log("Preencha todos os campos")
+        alert("Por favor, preencha todos os campos")
     
     } else {
 
         newArray.push(valor, tipoDespesa, descricao)
         console.log(newArray)
     } 
+
+}
+
+function detalhaDespesa() {
+
 
 }
