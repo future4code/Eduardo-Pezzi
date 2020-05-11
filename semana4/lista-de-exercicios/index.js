@@ -157,6 +157,14 @@ if (num2 % num1 == 0) {
 
 */
 
+// Exercícios de objetos:
+
+/* Usamos array para armazenar valores em uma mesma variável e seu acesso se dá através de 
+sua posição/índice. Objetos usamos para agrupar informações e o acesso se dá através de seu 
+atributo, não importando sua posição/index.*/
+
+
+
 
 
 
