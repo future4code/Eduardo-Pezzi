@@ -5,8 +5,9 @@ function CardPequeno(props) {
 
     return (
 
-        <div className="bigcard-container">
-            <h4>{ props.mailTitulo }</h4>
+        <div className="cardPequeno">
+            <h4> { props.tituloendereco } </h4>
+            <p>{ props.endereco }</p>
             <p>{ props.email }</p>
         </div>
 

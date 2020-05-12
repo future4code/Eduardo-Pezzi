@@ -44,9 +44,14 @@ function App() {
         />
       </div>
 
-      <CardPequeno
-      mailTitulo="E-mail para contato"
-      mail="edupezz@gmail.com" />
+      <div className="page-section-container">
+      <h2>Informações de Contato</h2>
+      <CardPequeno 
+      tituloendereco="Endereço: " 
+      endereco="Rua Chaves Faria, 148 - São Cristovão, Rio de Janeiro - RJ"  
+      email="edupezz@gmail.com" 
+      />
+      </div>
 
       <div className="page-section-container">
         <h2>Minhas redes sociais</h2>
@@ -54,7 +59,7 @@ function App() {
           imagem="https://d2v9ipibika81v.cloudfront.net/uploads/sites/261/2017/01/facebook-logo-3.png" 
           texto="Facebook" 
         />        
-
+        
         <ImagemButton 
           imagem="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1-1.png" 
           texto="Twitter" 
