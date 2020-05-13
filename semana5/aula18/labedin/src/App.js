@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
 import CardGrande from './components/CardGrande/CardGrande';
-import CardPequeno from './components/CardPequeno/CardPequeno'
+import CardPequeno from './components/CardPequeno/CardPequeno';
+import CardFormacaoAcademica from './components/CardFormacaoAcademica/CardFormacaoAcademica';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 import Foto from './foto.png';
-import Logoip from './ip.jpg'
+import Logoip from './ip.jpg';
 
 function App() {
   return (
@@ -54,7 +55,34 @@ function App() {
       </div>
 
       <div className="page-section-container">
+      <h2>Formação Acadêmica</h2>
+      <CardFormacaoAcademica 
+      instituicao="Universidad Isabel I - Burgos/Espanha" 
+      curso="Master's Degree - Project Management"
+      />
+
+      <CardFormacaoAcademica 
+      instituicao="Pontifícia Universidade Católica - PUC-MG" 
+      curso="Pós Graduação - Engenharia de Software"
+      />
+
+      <CardFormacaoAcademica 
+      instituicao="Universidade Estácio de Sá - UNESA" 
+      curso="Graduação - Sistemas de Informação"
+      />
+
+
+      </div>
+
+      <div className="page-section-container">
         <h2>Minhas redes sociais</h2>
+        <a href="https://www.linkedin.com/in/eduardo-pezzi/" target="_blank">
+        <ImagemButton 
+          imagem="https://is5-ssl.mzstatic.com/image/thumb/Purple123/v4/83/3f/a9/833fa9b8-2b53-9115-30ee-a5394b9a5026/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.png" 
+          texto="Linkedin" 
+        />
+        </a>
+
         <ImagemButton 
           imagem="https://d2v9ipibika81v.cloudfront.net/uploads/sites/261/2017/01/facebook-logo-3.png" 
           texto="Facebook" 
