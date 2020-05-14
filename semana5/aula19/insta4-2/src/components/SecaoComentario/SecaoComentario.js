@@ -15,10 +15,10 @@ export class SecaoComentario extends Component {
 			<input
 				className={'input-comentario'}
 				placeholder={'Comentário'}
-				value={''}
+				value={this.props.value}
 				onChange={this.onChangeComentario}
 			/>
-			<button onClick={this.props.aoEnviar} value={this.props.value}>Enviar</button>
+			<button onClick={this.props.aoEnviar} >Enviar</button>
 		</div>
 	}
 }
