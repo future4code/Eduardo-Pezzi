@@ -1,0 +1,20 @@
+.cardPequeno {
+    display: flex;
+    border: 1px solid black;
+    padding: 50px 10px;
+    margin-bottom: 10px;
+    height: 200px;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.cardPequeno h4 {
+    margin-bottom: 2.2vh;
+}
+
+
+.cardPequeno > div {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+}
