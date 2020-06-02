@@ -71,7 +71,7 @@ export class Cadastro extends React.Component {
     //////////////// final criar usuario.
 
 
-    /////////////// Tratando compos input com atributo name
+    /////////////// Tratando campos input com atributo name
     handleValue (event){
         let valor = event.target.value;
         let name = event.target.name;
