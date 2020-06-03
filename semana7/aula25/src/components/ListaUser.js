@@ -6,7 +6,6 @@ import {
 }
 from './styles'
 
-
 import axios from 'axios';
 
 
