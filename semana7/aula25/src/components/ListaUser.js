@@ -1,11 +1,9 @@
 import React from 'react';
 import { Button, Alert } from 'reactstrap'
-
 import {
     ListContainer
 }
 from './styles'
-
 import axios from 'axios';
 
 
@@ -24,8 +22,6 @@ export class ListaUser extends React.Component {
         this.handleList = this.youGonnaBeCaught.bind(this);
     }
 
-   
-
     componentDidMount = () =>{
         this.youGonnaBeCaught();
     }
@@ -37,7 +33,7 @@ export class ListaUser extends React.Component {
         ).then (resposta => {
             this.setState({ usuario: resposta.data })
             window.alert('Lista obtida com sucesso')
-            console.log( this.state.usuario )
+            console.log( this.usuario )
         }).catch(error =>{
             console.log( error )
             window.alert('Erro ao obter lista de usuários')
@@ -46,31 +42,34 @@ export class ListaUser extends React.Component {
 
     youGonnaBeDeleted = (userId) => {
 
+        const isItConfirmed = (window.confirm("Deseja remover o usuario"));
+        if (isItConfirmed === true){
+
         axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
             youGonnaBeAuthorized
         ).then(() => {
+            console.log(isItConfirmed)
             alert('Usuário removido com sucesso')
             this.youGonnaBeCaught();
         }).catch(error => {
             alert('Falha ao remover usuário')
         })
+    } else {
+        window.alert('Usuário não deletado')
+    }
     };
 
-    /*trazLista = () =>{
-        this.state.usuario.map(nomes => {
-            return<p key={nomes.id}>{nomes.name}</p>
-            
-        })
-    }*/
     render(){
+
+        const { usuario } = this.state;
 
         return(
         <ListContainer>
                
-            {this.state.usuario.map(user => {
+            {usuario.map(user => {
             return(
             <>
-                <Alert color="success">Lista carregada com sucesso.</Alert>
+                <Alert color="success" isOpen="false">Lista carregada com sucesso.</Alert>
                 <p key={user.id}>{user.name}</p><Button
                  color="danger" onClick={()=> this.youGonnaBeDeleted(user.id)}>Remover</Button>;
             </>
