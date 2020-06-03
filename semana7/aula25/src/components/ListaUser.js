@@ -1,12 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Button, Alert } from 'reactstrap'
+
+import {
+    ListContainer
+}
+from './styles'
+
+
 import axios from 'axios';
 
-const ListContainer = styled.div `
 
-    display: flex;
-
-`
+const youGonnaBeAuthorized = {
+    headers: { Authorization: "eduardo-pezzi-mello" }
+};
 
 export class ListaUser extends React.Component {
 
@@ -16,43 +22,63 @@ export class ListaUser extends React.Component {
         this.state = {
             usuario: [],
         }
-        this.handleList = this.handleList.bind(this);
+        this.handleList = this.youGonnaBeCaught.bind(this);
     }
+
+   
 
     componentDidMount = () =>{
-        this.handleList();
+        this.youGonnaBeCaught();
     }
 
-    handleList = () => {
+    youGonnaBeCaught = () => {
 
         axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users',
-        {
-            headers: { Authorization: 'eduardo-pezzi-mello' }
-        }).then (resposta => {
-            this.setState({ usuario: resposta.data.name })
-            window.alert('Lista obtida com sucesso');
-            console.log(resposta)
-            console.log(this.state)
+            youGonnaBeAuthorized
+        ).then (resposta => {
+            this.setState({ usuario: resposta.data })
+            window.alert('Lista obtida com sucesso')
+            console.log( this.state.usuario )
         }).catch(error =>{
-            console.log(error)
+            console.log( error )
             window.alert('Erro ao obter lista de usuários')
         })
     }
 
-    trazLista = () =>{
-        this.state.usuario.map(nomes => {
-            return<p>{ nomes.name }</p>
+    youGonnaBeDeleted = (userId) => {
+
+        axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
+            youGonnaBeAuthorized
+        ).then(() => {
+            alert('Usuário removido com sucesso')
+            this.youGonnaBeCaught();
+        }).catch(error => {
+            alert('Falha ao remover usuário')
         })
-    }
+    };
+
+    /*trazLista = () =>{
+        this.state.usuario.map(nomes => {
+            return<p key={nomes.id}>{nomes.name}</p>
+            
+        })
+    }*/
     render(){
 
         return(
-           <div>
-               <button onClick={this.trazLista}>Clique</button>
-            </div>
-
-
-
+        <ListContainer>
+               
+            {this.state.usuario.map(user => {
+            return(
+            <>
+                <Alert color="success">Lista carregada com sucesso.</Alert>
+                <p key={user.id}>{user.name}</p><Button
+                 color="danger" onClick={()=> this.youGonnaBeDeleted(user.id)}>Remover</Button>;
+            </>
+            )
+          })}
+               
+        </ListContainer>
         )
     }
 }
