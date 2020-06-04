@@ -61,12 +61,10 @@ export class ListaUser extends React.Component {
     };
 
     render(){
-
         const { usuario } = this.state;
 
         return(
         <ListContainer>
-               
             {usuario.map(user => {
             return(
             <>
@@ -79,7 +77,7 @@ export class ListaUser extends React.Component {
             </>
             )
           })}
-               
+     
         </ListContainer>
         )
     }

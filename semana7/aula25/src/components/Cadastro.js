@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Header from './Header';
 
 import { 
     CadastroContainer ,
@@ -61,7 +62,7 @@ export class Cadastro extends React.Component {
         //////// Final chega de this.state
     
         return(
-
+        <>
             <CadastroContainer>
                 <Form>
                     <FormGroup>
@@ -90,6 +91,7 @@ export class Cadastro extends React.Component {
                     </FormGroup>
                 </Form>
             </CadastroContainer>
+        </>
         )};}
 
 export default Cadastro;

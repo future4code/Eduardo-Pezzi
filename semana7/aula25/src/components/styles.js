@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export const AppContainer = styled.div `
 
     width: 100vw;
-    height: 70vh;
+    height: 99vh;
     display: flex;
     flex-direction: column;
     background-color: #222222;
     align-content: center;
+    justify-content: center;
 
 `
 export const ListContainer = styled.div `
@@ -16,7 +17,7 @@ export const ListContainer = styled.div `
     flex-direction: row;
     flex-wrap: wrap;
     width: 100vw;
-    height: 70vh;
+    height: 99vh;
     background-color: #333333;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239f76e1' fill-opacity='0.48' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
     padding: 2.5vh;
@@ -29,7 +30,6 @@ export const ListContainer = styled.div `
     Button {
         display:inline-block;
     }
-
 `
 export const MapContainer = styled.div `
 
@@ -74,4 +74,10 @@ export const CadastroContainer = styled.div `
         margin-top: 3.5vh;
         margin-bottom: 1vh;
     }
+`
+export const Linha = styled.div `
+
+    width: 100vw;
+    height: 1vh;
+    background-color: #D35400;
 `

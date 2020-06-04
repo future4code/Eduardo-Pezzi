@@ -1,2 +1,12 @@
 import React from 'react';
-import Header from './styles'
+import { Linha } from './styles'
+
+export class Head extends React.Component {
+
+    render(){
+        return(
+            <Linha />
+        )
+    }
+}
+export default Head;
