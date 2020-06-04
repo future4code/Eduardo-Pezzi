@@ -1,41 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
-import axios from 'axios'
+import axios from 'axios';
 
-const CadastroContainer = styled.div `
+import { 
+    CadastroContainer ,
+} from './styles'
 
-    display: flex;
-    height: auto;
-    background-color: lightgray;
-    align-self: center;
-    justify-content: center;
-    flex-flow: column;
+import { 
+    Button, 
+    Form, 
+    FormGroup,
+    Label,
+    Input
+  } from 'reactstrap';
 
-`
-const FormUsuario = styled.input `
-
-    display: flex;
-    background-color: gray;
-    border: thin solid lightgreen;
-    color: white;
-
-`
-const FormEmail = styled.input `
-
-    display: flex;
-    background-color: gray;
-    border: thin solid lightgreen;
-    color: white;
-
-`
-const Button = styled.button `
-
-    
-    background: gray;
-    border: thin solid lightgreen;
-    color: white;
-
-`
 export class Cadastro extends React.Component {
 
     constructor(props){
@@ -45,34 +22,30 @@ export class Cadastro extends React.Component {
 
             nome: "",
             email: "",
-
         }
-        this.handleValue = this.handleValue.bind(this);
+        this.letsCapture = this.letsCapture.bind(this);
     }
 
-
     ///////////// início criar usuario.
-    createUser = () =>{
+    youGonnaBeCreated = () => {
         const body = {
         name: this.state.nome,
         email: this.state.email,
-        }
-    
-
-    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
-    , body, {
-        headers: { Authorization: 'eduardo-pezzi-mello' }
-    }).then((response) => {
-        window.alert('Dados enviados com sucesso')
-    }).catch((error) => {
-        window.alert('Erro ao enviar dados')
-    })
     }
+    
+        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
+        ,body, {
+            headers: { Authorization: 'eduardo-pezzi-mello' }
+     }).then((response) => {
+            window.alert('Dados enviados com sucesso')
+        }).catch((error) => {
+            window.alert('Erro ao enviar dados')
+     })}
     //////////////// final criar usuario.
 
 
     /////////////// Tratando campos input com atributo name
-    handleValue (event){
+    letsCapture (event){
         let valor = event.target.value;
         let name = event.target.name;
         this.setState({
@@ -83,25 +56,40 @@ export class Cadastro extends React.Component {
     
     
     render(){
+        ///////// Chega de this.state
         const { nome, email } = this.state;
+        //////// Final chega de this.state
     
         return(
 
             <CadastroContainer>
-                <label for="FormUsuario">Digite Seu Nome: </label>
-                <FormUsuario name="nome"
-                value={nome}
-                onChange={this.handleValue}
-                placeholder="Digite seu nome" />
-                
-                <label for="FormEmail">Digite Seu Email: </label>
-                <FormEmail name="email"
-                value={email}
-                onChange={this.handleValue}
-                placeholder="Digite seu email" />
+                <Form>
+                    <FormGroup>
+                        <Label for="Form">
+                            Digite Seu Nome:
+                        </Label>
 
-                <Button onClick={this.createUser}>Enviar</Button>
+                        <Input name="nome"
+                            value={nome}
+                            onChange={this.letsCapture}
+                            placeholder="Digite seu nome"
+                        />
+                
+                        <Label for="FormEmail">
+                            Digite Seu Email:
+                        </Label>
+
+                        <Input type="email" name="email"
+                            value={email}
+                            onChange={this.letsCapture}
+                            placeholder="Digite seu email"
+                        />
+
+                        <Button color="primary" size="sm"
+                        onClick={this.youGonnaBeCreated}>Enviar</Button>
+                    </FormGroup>
+                </Form>
             </CadastroContainer>
-        )};
-}
+        )};}
+
 export default Cadastro;

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Alert } from 'reactstrap'
+import { Button } from 'reactstrap'
 import {
-    ListContainer
+    ListContainer,
+    MapContainer
 }
 from './styles'
 import axios from 'axios';
@@ -19,7 +20,7 @@ export class ListaUser extends React.Component {
         this.state = {
             usuario: [],
         }
-        this.handleList = this.youGonnaBeCaught.bind(this);
+        this.youGonnaBeCaught = this.youGonnaBeCaught.bind(this);
     }
 
     componentDidMount = () =>{
@@ -42,7 +43,7 @@ export class ListaUser extends React.Component {
 
     youGonnaBeDeleted = (userId) => {
 
-        const isItConfirmed = (window.confirm("Deseja remover o usuario"));
+        const isItConfirmed = (window.confirm("Deseja remover o usuario?"));
         if (isItConfirmed === true){
 
         axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
@@ -69,9 +70,12 @@ export class ListaUser extends React.Component {
             {usuario.map(user => {
             return(
             <>
-                <Alert color="success" isOpen="false">Lista carregada com sucesso.</Alert>
-                <p key={user.id}>{user.name}</p><Button
-                 color="danger" onClick={()=> this.youGonnaBeDeleted(user.id)}>Remover</Button>;
+                <MapContainer>
+                    <span key={user.id}>{user.name}</span>
+                    <Button color="danger" size="sm" onClick={()=> this.youGonnaBeDeleted(user.id)}>
+                        Remover
+                    </Button>
+                </MapContainer>
             </>
             )
           })}

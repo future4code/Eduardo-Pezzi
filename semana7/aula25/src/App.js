@@ -1,7 +1,14 @@
 import React from 'react';
 import Cadastro from './components/Cadastro';
 import ListaUser from './components/ListaUser';
-import { Button } from 'reactstrap';
+
+import { AppContainer } from './components/styles'
+
+import { 
+  Button, 
+} from 'reactstrap';
+
+
 
 
 export class App extends React.Component {
@@ -25,10 +32,10 @@ export class App extends React.Component {
   render() {
     return (
 
-      <>
-        <Button color="primary" size="sm" onClick={this.letsChangePage}> Trocar Página </Button>
+      <AppContainer>
         {this.state.currentPage === "initial" ? (<Cadastro />) : (<ListaUser />)}
-      </>
+        <Button color="primary" size="sm" onClick={this.letsChangePage}> Trocar Página </Button>
+      </AppContainer>
   );}
 }
 export default App;
