@@ -1,12 +1,15 @@
 import React from 'react';
 import Pokemon from './components/Pokemon';
+import SaintSeiya from './components/SaintSeiya';
+import { AppContainer } from './components/styles';
 
 function App() {
   return (
-    <div className="App">
+    <AppContainer>
       <Pokemon />
+      <SaintSeiya />
       
-    </div>
+    </AppContainer>
   );
 }
 

@@ -55,7 +55,7 @@ export class Pokemon extends React.Component {
                 <img src={logo} alt="Pokemon" />
                 <h4>Escolha seu POKEMON</h4>
                 <select onChange={this.iWillCapture} >
-                    <option value="Selecione" />
+                    <option>Selecione</option>
                     {pokemon.map(pokequal => {
                         return(
                             <option value={pokequal.name}>{pokequal.name}</option>
@@ -66,9 +66,6 @@ export class Pokemon extends React.Component {
                     {imagem}
                 </PokemonImgContainer>
             </PokemonContainer>
-
-
-
         );
     }
 }
