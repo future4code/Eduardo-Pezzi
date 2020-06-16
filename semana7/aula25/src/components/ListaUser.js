@@ -7,7 +7,6 @@ import {
 from './styles'
 import axios from 'axios';
 
-
 const youGonnaBeAuthorized = {
     headers: { Authorization: "eduardo-pezzi-mello" }
 };
@@ -38,8 +37,7 @@ export class ListaUser extends React.Component {
         }).catch(error =>{
             console.log( error )
             window.alert('Erro ao obter lista de usuários')
-        })
-    }
+        })}
 
     youGonnaBeDeleted = (userId) => {
 
@@ -57,8 +55,7 @@ export class ListaUser extends React.Component {
         })
     } else {
         window.alert('Usuário não deletado')
-    }
-    };
+    }};
 
     render(){
         const { usuario } = this.state;
@@ -79,7 +76,5 @@ export class ListaUser extends React.Component {
           })}
      
         </ListContainer>
-        )
-    }
-}
+        )}}
 export default ListaUser
