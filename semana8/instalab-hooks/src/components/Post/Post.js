@@ -29,11 +29,7 @@ const Post = (props) => {
 
     if (curtido) {
       setCurtido(!curtido);
-<<<<<<< HEAD
-      setNumeroCurtidas( numeroCurtidas -1 );
-=======
       setNumeroCurtidas(numeroCurtidas -1);
->>>>>>> 73b67d85545eefeb1bacb0a48ed7e7b097ac07eb
     }else {
       setCurtido(!curtido);
       setNumeroCurtidas(+1);
