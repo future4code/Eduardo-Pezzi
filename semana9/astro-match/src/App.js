@@ -4,7 +4,7 @@ import CardPerson from './components/CardPerson/index';
 import Action from './components/Actions/index';
 
 function App() {
-  const [profiles, setProfiles] = useState([]);
+  const [profiles, setProfiles] = useState([]); 
 
   /*function getMatches (){
     Get('/matches',)

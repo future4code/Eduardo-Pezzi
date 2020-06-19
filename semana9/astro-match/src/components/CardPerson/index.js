@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function CardPerson ( {person} ){
+function CardPerson ( {person} ){ 
 
     const personName = person.name;
     const personPhoto = person.photo;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Post } from '../utility/conection';
 import { FcLike, FcDislike } from 'react-icons/fc';
 
-function Action ( {person, getProfiles },  ){
+function Action ( {person, getProfiles },  ){ 
 
     const actionId = person.id;
     const likes = [];

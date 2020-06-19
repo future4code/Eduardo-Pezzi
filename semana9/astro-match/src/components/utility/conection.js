@@ -15,4 +15,4 @@ export function Get(url){
 
 export function Put (url, data){
     return conection.put(url, data);
-}
+} 
