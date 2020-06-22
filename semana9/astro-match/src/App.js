@@ -3,7 +3,6 @@ import { Get } from './components/utility/conection';
 import CardPerson from './components/CardPerson/index';
 import { Action } from './components/Actions/index';
 import Header from './components/Header/index';
-import Matches from './components/Matches/index';
 import styled from 'styled-components';
 
 const AppContainer = styled.div `

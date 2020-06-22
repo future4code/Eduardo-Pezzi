@@ -59,10 +59,10 @@ function Action ( {person, getProfiles } ){
     return(
         <ActionsContainer>
             <ActionDisLikeButton onClick={sendDisLike} id={actionId}>
-                <FcDislike />
+                <FcDislike style={{fontSize: '3vh'}} />
             </ActionDisLikeButton>
             <ActionLikeButton onClick={sendLike} id={actionId}>
-                <FcLike />
+                <FcLike style={{fontSize: '3vh'}}   />
             </ActionLikeButton>
         </ActionsContainer>
     );
