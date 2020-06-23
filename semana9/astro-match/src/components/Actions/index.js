@@ -24,11 +24,13 @@ function Action ( {person, getProfiles } ){
 
     const actionId = person.id;
     const [like, setLike] = useState('');
+
     const [data, setData] = useState([]);
 
     function sendLike (){
 
         setData({
+          
             id: actionId,
             choice: true
         })

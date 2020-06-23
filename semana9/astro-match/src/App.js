@@ -35,6 +35,7 @@ const RightContainer = styled.div `
 function App() {
   const [profiles, setProfiles] = useState([]); 
 
+
   function getProfiles (){
     Get('/person',)
     .then(response => {
@@ -47,6 +48,7 @@ function App() {
   },[]);
 
   return (
+
     <AppContainer>
       <LeftContainer />
         <ContentContainer>
@@ -58,4 +60,5 @@ function App() {
     </AppContainer>
   )
 }
+
 export default App;
