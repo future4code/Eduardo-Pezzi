@@ -1,36 +1,72 @@
 import React, { useState } from 'react';
 import { Post } from '../utility/conection';
 import { FcLike, FcDislike } from 'react-icons/fc';
+import styled from 'styled-components';
 
-function Action ( {person, getProfiles },  ){
+const ActionsContainer= styled.div `
+
+    display: flex;
+    align-self: center;
+    height: 6vh;
+    width: 29vw;
+`
+const ActionLikeButton = styled.button `
+
+    width: 100%;
+    border-radius: 100px;
+`
+const ActionDisLikeButton = styled.button `
+
+    width: 100%;
+    border-radius: 100px;
+`
+function Action ( {person, getProfiles } ){ 
 
     const actionId = person.id;
-    const likes = [];
-    const dislikes = [];
+    const [like, setLike] = useState('');
+
     const [data, setData] = useState([]);
 
     function sendLike (){
 
         setData({
-            id: person.id,
+          
+            id: actionId,
             choice: true
         })
 
         Post('/choose-person', data)
         .then(isLike => {
-            console.log(isLike)
+            setLike(isLike.data.isMatch)
+                
+        })
+            getProfiles();
+    }
+
+    function sendDisLike (){
+
+        setData({
+            id: actionId,
+            choice: false
         })
 
-        likes.push(person.id)
-        getProfiles();
-    }  
+        Post('/choose-person', data)
+        .then(isLike => {
+            setLike(isLike.data.isMatch)
+                
+        })
+            getProfiles();
+    }
 
     return(
-        <div>
-            <FcDislike id={person.id} onClick={sendLike} style={{cursor: 'hand'}}/>
-            <FcLike id={person.id} onClick={sendLike} style={{cursor: 'hand'}}/>
-            {console.log(actionId)}
-        </div>
+        <ActionsContainer>
+            <ActionDisLikeButton onClick={sendDisLike} id={actionId}>
+                <FcDislike style={{fontSize: '3vh'}} />
+            </ActionDisLikeButton>
+            <ActionLikeButton onClick={sendLike} id={actionId}>
+                <FcLike style={{fontSize: '3vh'}}   />
+            </ActionLikeButton>
+        </ActionsContainer>
     );
 }
-export default Action;
+export { Action, ActionDisLikeButton, ActionLikeButton };
