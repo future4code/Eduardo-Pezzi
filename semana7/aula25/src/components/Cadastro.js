@@ -28,7 +28,7 @@ export class Cadastro extends React.Component {
     }
 
     ///////////// início criar usuario.
-    youGonnaBeCreated = () => {
+    youGonnaBeCreated = () => { 
         const body = {
         name: this.state.nome,
         email: this.state.email,
@@ -93,5 +93,4 @@ export class Cadastro extends React.Component {
             </CadastroContainer>
         </>
         )};}
-
 export default Cadastro;
