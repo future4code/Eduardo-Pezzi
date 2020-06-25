@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import HomePage from './components/HomePage';
 import AdminPage from './components/AdminPage';
@@ -10,19 +10,18 @@ import PedidoPage from './components/PedidoPage';
 export default function Routes() {
 
     return(
+        <>
+        <Switch>
 
-<BrowserRouter>
-    <Switch>
-
-        <Route exact path='/'> <HomePage /> </Route>
-        <Route exact path='/admin'> <AdminPage /> </Route>
-        <Route exact path='/viagens'> <ViagensPage /> </Route>
-        <Route exact path='/contato'> <ContatoPage /> </Route>
-        <Route exact path='/pedido'> <PedidoPage /> </Route>
+            <Route exact path='/'> <HomePage /> </Route>
+            <Route exact path='/admin'> <AdminPage /> </Route>
+            <Route exact path='/viagens'> <ViagensPage /> </Route>
+            <Route exact path='/contato'> <ContatoPage /> </Route>
+            <Route exact path='/pedido'> <PedidoPage /> </Route>
 
 
-    </Switch>
-</BrowserRouter>
+        </Switch>
+        </>
 
     );
 }
