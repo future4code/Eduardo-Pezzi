@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Get } from '../../Utility/Conection';
 import { useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import {
     ViagensPageContainer,
@@ -23,10 +24,14 @@ from '@ant-design/icons'
 
 const { Meta } = Card;
 
+
 function Viagens (){
 
+    
     const history = useHistory()
     const [trips, setTrips] = useState([]);
+    //const [tripid, setTripId] = useState([]);
+    
     
 
     useEffect(() =>{
@@ -37,9 +42,10 @@ function Viagens (){
         })
     }, [])
     
-    const aplication = (trips) => {
-        history.push('/aplication')
-    }
+    /*const aplication = () => {
+        
+        history.push(`/aplication/${tripid}`)
+    }*/
     
 
     return(
@@ -47,14 +53,12 @@ function Viagens (){
             <LeftBar />
             {trips.map(trip => {
                 return(
-                    
                     <Card id={trip.id}
                         style={{ 
                             width: '20vw',
                             display: 'flex',
                             flexDirection: 'column',
                             padding: '1vh'
-                    
                         }}
                         cover={
                             <img alt={trip.name}
@@ -62,17 +66,21 @@ function Viagens (){
                         }
                         actions={[
                             <ShoppingCartOutlined
-                            key={trip.id}
-                            id={trip.id}
-                            onClick={(trip) => history.push('/aplication')} />,
+                            value={trip.id}
+                            
+                            onClick={(() => {
+                               // setTripId(...tripid, trip.id)
+                                history.push(`/aplication/${trip.id}`)
+                            })} />,
                         ]} 
-                    >
-                    <Meta avatar={<Avatar src="https://picsum.photos/30/30" />}
-                    title={trip.name}
-                    description={trip.description}
+                    > 
+
+                    <Meta 
+                        avatar={<Avatar src="https://picsum.photos/30/30" />}
+                        title={trip.name}
+                        description={trip.description}
                     />
                     </Card>
-
                 )
             })}
             <RightBar />

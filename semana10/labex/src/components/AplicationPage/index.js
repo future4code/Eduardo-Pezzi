@@ -1,16 +1,16 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
-function Aplication( {trips} ){
+function Aplication(){
 
-    const trip_id = trips.id;
-    const trip_name = trips.name;
-    const trip_description = trips.description;
-    const trip_planet = trips.planet;
+    const PathParams = useParams();
 
     return(
         <>
-        {console.log(trip_id)}
+        {console.log('oi')}
             <p>olá</p>
+            <p>id: {PathParams.id}</p>
+            {console.log(PathParams)}
         </>
 
     );

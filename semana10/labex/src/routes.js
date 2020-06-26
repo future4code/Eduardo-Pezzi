@@ -19,7 +19,7 @@ export default function Routes() {
             <Route exact path='/viagens'> <ViagensPage /> </Route>
             <Route exact path='/contato'> <ContatoPage /> </Route>
             <Route exact path='/pedido'> <PedidoPage /> </Route>
-            <Route exact path='/aplication'> <AplicationPage /> </Route>
+            <Route exact path="/aplication/:id"> <AplicationPage /> </Route>
 
 
         </Switch>
