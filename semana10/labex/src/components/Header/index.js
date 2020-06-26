@@ -1,84 +1,67 @@
-import React, { useState } from 'react';
-import { Post } from '../../Utility/Conection';
+import React, { useState, useEffect } from 'react';
+import LoggedContainer from './LoggedContainer';
+import FormContainer from './FormContainer';
+import { useHistory } from 'react-router-dom';
 
 import 
 { 
     HeaderContainer,
-    FormContainer,
-    LogoContainer
+    LogoContainer,
+    LinksContainer
 } 
  from './styles';
 
-import 'antd/dist/antd.css';
-
-import
-{ 
-    Input,
-    Tooltip,
-    Space,
-    Button
-} 
-from 'antd';
-
-import
-{
-    EyeInvisibleOutlined,
-    InfoCircleOutlined,
-    UserOutlined,
-    EyeTwoTone,
-}
-from '@ant-design/icons';
-
-
 export function Header (){
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const history = useHistory()
 
-    function Login(){
+    useEffect(() => {
+        
+        const token = window.localStorage.getItem('token');
 
-        const body ={
-            email: email,
-            password: password,
+        if (token === null){
+            return(
+                <FormContainer />
+            )
+        } else {
+            return(
+                <LoggedContainer />
+            )
         }
+    }, [history] )
 
-        Post('/login', body)
+    const quemSomos = () =>{
+        history.push('/admin')
     }
 
+    const viagens = () =>{
+        history.push('/viagens')
+    }
+
+    const contato = () =>{
+        history.push('/contato')
+    }
+
+    const pedido = () =>{
+        history.push('/pedido')
+    }
 
     return(
+        
         <HeaderContainer>
+
             <LogoContainer>
                 <h1>LabeX</h1>
             </LogoContainer>
 
-            
-            <FormContainer>
-                <Space direction="horizontal">
+            <LinksContainer>
+               <p onClick={viagens}>Viagens</p>
+               <p onClick={contato}>Contato</p>
+               <p onClick={pedido}>Pedido</p>
+            </LinksContainer>
 
-                    <Input size='small'
-                        placeholder="E-mail de cadastro"
-                        prefix={<UserOutlined className="site-form-item-icon" />}
-                        suffix=
-                        {
-                            <Tooltip title="Seu e-mail">
-                            <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
-                        </Tooltip>
-                        }
-                        value={email} onChange={ (e) => setEmail(e.target.value)}
-                    />
+            <FormContainer />
 
-                    <Input.Password size='small'
-                        placeholder="Digite a senha"
-                        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                        value={password} onChange={ (p) => setPassword(p.target.value)}
-                    />
-
-                    <Button type='primary' size='small'>Login</Button>
-                    <Button type='secondary' size='small'>Sign in</Button>
-                </Space>
-            </FormContainer>
-            
         </HeaderContainer>
     )
 }
