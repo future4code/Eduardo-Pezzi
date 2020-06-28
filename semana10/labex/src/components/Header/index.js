@@ -14,21 +14,31 @@ import
 export function Header (){
 
     const history = useHistory()
+    const [logged, setLogged] = useState()
+    const token = window.localStorage.getItem('token');
+
 
     useEffect(() => {
-        
-        const token = window.localStorage.getItem('token');
+
+       /* switch (token) {
+            case null:
+                setLogged(<FormContainer />)
+                break;
+            case !null:
+                setLogged(<LoggedContainer />)
+                break;
+            default: setLogged(<FormContainer />)
+        }*/
 
         if (token === null){
-            return(
-                <FormContainer />
-            )
+            setLogged(<FormContainer />)
+            history.push('/')
         } else {
-            return(
-                <LoggedContainer />
-            )
+            setLogged(<LoggedContainer />)
+            history.push('/')
         }
-    }, [history] )
+
+    }, [ token, history ] )
 
     const quemSomos = () =>{
         history.push('/admin')
@@ -46,6 +56,8 @@ export function Header (){
         history.push('/pedido')
     }
 
+    console.log(token)
+
     return(
         
         <HeaderContainer>
@@ -60,7 +72,7 @@ export function Header (){
                <p onClick={pedido}>Pedido</p>
             </LinksContainer>
 
-            <FormContainer />
+            {logged}
 
         </HeaderContainer>
     )

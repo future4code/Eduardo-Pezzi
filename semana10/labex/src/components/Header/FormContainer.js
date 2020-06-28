@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormContainer } from './styles';
 import { Post } from '../../Utility/Conection';
 
@@ -27,8 +27,10 @@ function HeaderContainer(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [token, setToken] = useState('');
+    const [answer, setAnswer] = useState()
 
     const Login = async () => {
+
 
         const body ={
             email: email,
@@ -38,13 +40,13 @@ function HeaderContainer(){
         await Post('/login', body)
         .then(response =>{
             setToken(response.data.token)
-            console.log(response)
+            setAnswer(response.data.success)
             window.localStorage.setItem('token', response.data.token)
+            window.localStorage.setItem('success', response.data.success)
         }).catch(error =>{
             window.alert('Falha ao efetuar Log in')
         })
     }
-    console.log(token)
 
     return(
         <FormContainer>

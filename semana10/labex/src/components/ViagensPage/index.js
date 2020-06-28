@@ -53,7 +53,7 @@ function Viagens (){
             <LeftBar />
             {trips.map(trip => {
                 return(
-                    <Card id={trip.id}
+                    <Card key={trip.id}
                         style={{ 
                             width: '20vw',
                             display: 'flex',
@@ -70,7 +70,8 @@ function Viagens (){
                             
                             onClick={(() => {
                                // setTripId(...tripid, trip.id)
-                                history.push(`/aplication/${trip.id}`)
+                                history.push
+                                (`/aplication/${trip.id}/${trip.name}/${trip.planet}`)
                             })} />,
                         ]} 
                     > 

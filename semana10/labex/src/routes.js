@@ -7,6 +7,7 @@ import ViagensPage from './components/ViagensPage';
 import ContatoPage from './components/ContatoPage';
 import PedidoPage from './components/PedidoPage';
 import AplicationPage from './components/AplicationPage';
+import LoginPage from './components/LoginPage';
 
 export default function Routes() {
 
@@ -19,7 +20,8 @@ export default function Routes() {
             <Route exact path='/viagens'> <ViagensPage /> </Route>
             <Route exact path='/contato'> <ContatoPage /> </Route>
             <Route exact path='/pedido'> <PedidoPage /> </Route>
-            <Route exact path="/aplication/:id"> <AplicationPage /> </Route>
+            <Route exact path="/aplication/:id/:name/:planet"> <AplicationPage /> </Route>
+            <Route exact path='/login'> <LoginPage /> </Route>
 
 
         </Switch>
