@@ -8,6 +8,7 @@ export const MainContainer = styled.div `
     background-color: #2B3137;
     padding-right: 15vw;
     padding-top: 9vh;
+    
 `
 export const MainTextContainer = styled.div `
 

@@ -93,10 +93,10 @@ export function HomePage (){
                         }}>
                             Já está cadastrado? <br />
                             <span
-                                style={{cursor: "hand", color: 'blue'}}
+                                style={{cursor: "pointer", color: 'blue'}}
                             >CLIQUE AQUI</span> para fazer 
                             <span
-                                style={{cursor: "hand", color: 'blue'}}
+                                style={{cursor: "pointer", color: 'blue'}}
                             >LOGIN</span> e iniciar sua sessão.
                         </p>
                     </FormGroup>

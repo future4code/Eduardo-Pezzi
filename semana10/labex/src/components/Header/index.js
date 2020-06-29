@@ -14,11 +14,9 @@ import
 export function Header (){
 
     const history = useHistory()
-    const [logged, setLogged] = useState()
-    const token = window.localStorage.getItem('token');
 
 
-    useEffect(() => {
+   /* useEffect(() => {
 
        /* switch (token) {
             case null:
@@ -30,7 +28,7 @@ export function Header (){
             default: setLogged(<FormContainer />)
         }*/
 
-        if (token === null){
+       /* if (token === null){
             setLogged(<FormContainer />)
             history.push('/')
         } else {
@@ -38,11 +36,8 @@ export function Header (){
             history.push('/')
         }
 
-    }, [ token, history ] )
+    }, [ token, history ] )*/
 
-    const quemSomos = () =>{
-        history.push('/admin')
-    }
 
     const viagens = () =>{
         history.push('/viagens')
@@ -56,14 +51,16 @@ export function Header (){
         history.push('/pedido')
     }
 
-    console.log(token)
+    const home = () =>{
+        history.push('/')
+    }
 
     return(
         
         <HeaderContainer>
 
             <LogoContainer>
-                <h1>LabeX</h1>
+                <h1 onClick={home}>LabeX</h1>
             </LogoContainer>
 
             <LinksContainer>
@@ -72,7 +69,6 @@ export function Header (){
                <p onClick={pedido}>Pedido</p>
             </LinksContainer>
 
-            {logged}
 
         </HeaderContainer>
     )

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { Post } from '../../Utility/Conection';
+import { Post, Get } from '../../Utility/Conection';
 import {
     AplicationPageContainer,
     AplicationPageFormContainer
@@ -22,6 +22,7 @@ from '@ant-design/icons'
 
 const { Meta } = Card;
 
+
 function Aplication(){
 
     const [name, setName] = useState();
@@ -30,12 +31,22 @@ function Aplication(){
     const [profession, setProfession] = useState();
     const [country, setCountry] = useState();
 
+    const [durationInDays, setDurationInDays] = useState('');
+    const [date, setDate] = useState();
+    const [candidates, setCandidates] = useState([]);
+
     const token = window.localStorage.getItem('token');
     const PathParams = useParams();
     const history = useHistory()
     const idViagem = PathParams.id;
     const nameViagem = PathParams.name;
     const planetViagem = PathParams.planet;
+
+    let key = {
+        headers: {
+            auth: token
+        }
+    }
 
     async function applyToTrip(event){
 
@@ -61,16 +72,27 @@ function Aplication(){
 
     useEffect(() => {
         
+        Get(`/trip/${idViagem}`, key
+        )
+        .then(response => {
+            setDurationInDays(response.data.trip.durationInDays)
+            setDate(response.data.trip.date)
+            setCandidates(...candidates, response.data.trips.candidates)
+            console.log(response)
+        })
+
         if (token === null) {
             history.push('/login')
         }
-    }, [ history, token ])
+    }, [ history, token, candidates, idViagem, key ])
+
+    
 
     return(
         <AplicationPageContainer>
 
             <div className="site-card-border-less-wrapper">
-                <Card id={idViagem} title="Sua Aplicação" bordered={true}
+                <Card id={idViagem} title="Detalhes da Viagem" bordered={true}
                     style={{ 
                         backgroundColor: 'lightgray',
                         display: 'flex',
@@ -93,7 +115,10 @@ function Aplication(){
                         title={planetViagem}
                         description={nameViagem}
                     />
+                    
                 </Card>
+                <p>{date}</p>
+                    <p>{durationInDays}</p>
             </div>
 
             <AplicationPageFormContainer>

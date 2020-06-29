@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Post } from '../../Utility/Conection';
 import {
     MainContainer,
     FormContainer,
@@ -16,11 +17,31 @@ import {
 
 export function HomePage (){
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const body ={
+        email: email,
+        password: password,
+    }
+
     const history = useHistory()
 
     function goToLogin(){
 
         history.push('/login');
+    }
+
+    function SignUP(){
+
+        Post('/signup', body)
+        .then(response => {
+            window.alert('Usuário criado com sucesso')
+            history.push('/login')
+        }).catch(error => {
+            window.alert('Erro ao criar usuário')
+        })
+
     }
 
     return(
@@ -45,14 +66,16 @@ export function HomePage (){
                     <FormGroup>
                         <Label for="email">Email</Label>
                         <Input type="email" id="email"
-                        style={{backgroundColor: '#FAFBFC'}}></Input>
+                        style={{backgroundColor: '#FAFBFC'}}
+                        value={email} onChange={ (e) => setEmail(e.target.value)}></Input>
                     </FormGroup>
                     <FormGroup>
                         <Label for="password">Password</Label>
                         <Input type="password" id="password"
-                        style={{backgroundColor: '#FAFBFC'}}></Input>
+                        style={{backgroundColor: '#FAFBFC'}}
+                        value={password} onChange={ (p) => setPassword(p.target.value)}></Input>
                     </FormGroup>
-                    <Button color="success"
+                    <Button color="success" onClick={SignUP}
                         style={{
                             width: '27vw',
                             height: '10vh',
@@ -67,10 +90,10 @@ export function HomePage (){
                         }}>
                             Já está cadastrado? <br />
                             <span onClick={goToLogin}
-                                style={{cursor: "hand", color: 'blue'}}
+                                style={{cursor: "pointer", color: 'blue'}}
                             >CLIQUE AQUI</span> para fazer 
                             <span onClick={goToLogin}
-                                style={{cursor: "hand", color: 'blue'}}
+                                style={{cursor: "pointer", color: 'blue'}}
                             >LOGIN</span> e iniciar sua sessão.
                         </p>
                     </FormGroup>

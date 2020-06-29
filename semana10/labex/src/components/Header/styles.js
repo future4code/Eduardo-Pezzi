@@ -4,6 +4,13 @@ export const LogoContainer = styled.div `
 
     width: 25vw;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    h1{
+        cursor: pointer;
+    }
 `
 
 export const FormContainer = styled.div `
@@ -16,6 +23,13 @@ export const LinksContainer = styled.div `
 
     width: 35vw;
     display: flex;
+    align-self: center;
+    cursor: pointer;
+    
+
+    p {
+        padding: 1vw;
+    }
 `
 
 export const HeaderContainer = styled.div `

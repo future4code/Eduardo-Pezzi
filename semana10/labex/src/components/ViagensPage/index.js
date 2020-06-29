@@ -72,8 +72,8 @@ function Viagens (){
                                // setTripId(...tripid, trip.id)
                                 history.push
                                 (`/aplication/${trip.id}/${trip.name}/${trip.planet}`)
-                            })} />,
-                        ]} 
+                            })} />
+                        ]}
                     > 
 
                     <Meta 
