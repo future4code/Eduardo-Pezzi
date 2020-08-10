@@ -1,4 +1,6 @@
-show tables; DESC Actor;
+show tables;
+
+DESC Actor;
 
 INSERT INTO Actor (id, name, salary, birth_date, gender)
 VALUES(
@@ -67,4 +69,3 @@ SELECT * FROM Filmes where nome = "Doce de Mãe";
 SELECT * from Filmes;
 
 SELECT id, nome, sinopse FROM Filmes WHERE avaliacao > 7;
-

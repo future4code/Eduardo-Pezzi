@@ -35,6 +35,5 @@ E. Erro de sintaxe o campo 'nome' não existe, nós criamos campo semelhante esc
 
 A. Basicamente estamos filtrando os resultados de acordo com nosso critério de encontrar registros que tenham as iniciais do nome com A e J e que também atendam a necessidade de ter um salario maior que 300000.
 
-
 --------
 # OBS: Outros exercícios digitados no SQL Workbench seguem no arquivo .sql na branch.
