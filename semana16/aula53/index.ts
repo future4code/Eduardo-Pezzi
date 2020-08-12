@@ -152,7 +152,6 @@ const server = app.listen(process.env.PORT || 3003, () => {
     console.log('A média do genero é: R$', + illBeBack);
   }
   testeGetAverage('female');
-
   */
 
   // Exercício 3:
