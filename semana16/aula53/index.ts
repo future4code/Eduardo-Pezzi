@@ -20,7 +20,7 @@ const conection = knex({
 })
 
 app.use(express.json());
-/*
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
       const address = server.address() as AddressInfo;
@@ -28,7 +28,7 @@ const server = app.listen(process.env.PORT || 3003, () => {
     } else {
       console.error(`Falha na inicialização do servidor.`);
     }
-  });*/
+  });
 
 
   // Exercício 01: 
@@ -53,7 +53,7 @@ const server = app.listen(process.env.PORT || 3003, () => {
   // Resposta A) Recebemos a resposta 'CRUA' do banco de dados, sem tratamento.
 
   // Resposta B) 
-  /*
+  
   const getActorByName = async(name: string): Promise<any> => {
       try {
         const result = await conection.raw(`
@@ -70,11 +70,9 @@ const server = app.listen(process.env.PORT || 3003, () => {
   }
   
   testeDois("Juliana Paes")
-*/
 
   // Resposta C)
 
-  /*
   const getActorByGender = async(gender: string): Promise<any> => {
       const result = await conection.raw(`
       SELECT COUNT(*) as total FROM Actor WHERE gender = '${gender}'`);
@@ -87,12 +85,11 @@ const server = app.listen(process.env.PORT || 3003, () => {
     console.log(terceiro);
   }
   testetres('female');
-*/
 
   // -------------- Query Builder abaixo
   
   // Exercício 2:
-  /*
+  
   const createActor = async (
       id: string,
       name: string,
@@ -111,8 +108,9 @@ const server = app.listen(process.env.PORT || 3003, () => {
       .into ('Actor');
   };
 
+  // teste abaixo:
   const testeQuatro = createActor("006", "Eduardo Moscovis", 350000, '1977-04-04', "male");
-  */
+
 
   /*
   const updateSalaryFromID = async(salary: number, id: string): Promise<any> => {
@@ -172,6 +170,7 @@ const server = app.listen(process.env.PORT || 3003, () => {
   // Resposta A) Para que possamos receber a informação via params do front.
   // Resposta B) Ele enviam ao solicitante respostas referentes a sua requisição 200 para acerto e 400 para erro.
 
+  /*
   app.get("/actor", async (req: Request, res: Response) =>{
       try {
           const actor = await getAllActors();
@@ -182,4 +181,49 @@ const server = app.listen(process.env.PORT || 3003, () => {
             message: error.message,
         });
     }
+  });*/
+
+  // Teste em navegador executado com sucesso!
+
+  const actorByGender = async(gender: string): Promise<any> => {
+    const result = await conection.raw(`
+    SELECT COUNT(*) FROM Actor WHERE gender = '${gender}'`);
+      const total = result[0][0]
+    return total
+};
+
+  app.get("/actor", async (req: Request, res: Response) => {
+    try {
+      const count = await actorByGender(req.query.gender as string);
+      res.status(200).send({
+        quantity: count,
+      });
+    } catch (err) {
+      res.status(400).send({
+        message: err.message,
+      });
+    }
   });
+
+  // Exercício 4:
+  /*
+  app.put("/actor", async (req: Request, res: Response) => {
+    try {
+      await createActor(
+        req.body.id,
+        req.body.name,
+        req.body.salary,
+        new (req.body.dateOfBirth),
+        req.body.salary
+      );
+  
+      res.status(200).send();
+    } catch (err) {
+      res.status(400).send({
+        message: err.message,
+      });
+    }
+  });
+*/
+
+
