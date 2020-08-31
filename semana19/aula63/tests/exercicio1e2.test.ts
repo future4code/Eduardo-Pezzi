@@ -1,6 +1,7 @@
 import { User, performPurchase } from "../exercicio1e2";
 import { CasinoUser } from '../exercicio3';
 import {verifyAge, NACIONALITY, Casino, LOCATION} from '../exercicio3';
+import { TestScheduler } from "jest";
 
 
 // a)
@@ -144,3 +145,94 @@ test("Allowing two americans and blocking 2 brazilians", () => {
     expect(testResult.brazilians.unallowed).toEqual(["Eduardo", "Eduardo"]);
     expect(testResult.americans.allowed).toEqual(["Edward", "Edward"]);
 })
+
+// 5 -
+
+// a)
+
+test("a Brazilian going into a BR casino", () => {
+    const brazilianPlayer: CasinoUser = {
+        name: "Eduardo",
+        age: 20,
+        nacionality: NACIONALITY.BRAZILIAN
+    }
+
+    const casinoBR: Casino = {
+        name: "Sugar Loaf Casino",
+        location: LOCATION.BRAZIL
+    }
+
+    const testResult = verifyAge(casinoBR, [brazilianPlayer])
+
+    expect(testResult.brazilians.allowed.length).toBeGreaterThan(0);
+    expect(testResult.brazilians.allowed.length).toBeLessThan(2);
+})
+
+// b)
+
+test('Let the foreigner play', () => {
+    const foreignerUS: CasinoUser = {
+        name: 'Walter White',
+        age: 55,
+        nacionality: NACIONALITY.AMERICAN
+    }
+
+    const casinoBR: Casino = {
+        name: "Leblon Beach Casino",
+        location: LOCATION.BRAZIL
+    }
+
+    const testResult = verifyAge(casinoBR, [foreignerUS])
+
+    expect(testResult.americans.unallowed.length).toBe(0);
+})
+
+// c)
+
+test('two brazialians and two americans would like to play', () => {
+    const brazilian: CasinoUser = {
+        name: "Eduardo",
+        age: 19,
+        nacionality: NACIONALITY.BRAZILIAN
+    }
+
+    const american: CasinoUser = {
+        name: "Edward",
+        age: 19,
+        nacionality: NACIONALITY.AMERICAN
+    }
+
+    const casinoUS: Casino = {
+        name: "Boston Casino",
+        location: LOCATION.EUA
+    }
+
+    const testResult = verifyAge(casinoUS, [brazilian, american])
+
+    expect(testResult.brazilians.unallowed).toContain("Eduardo");
+    expect(testResult.americans.unallowed).toContain("Edward");
+});
+
+test('two brazialians and two americans would like to play', () => {
+    const brazilian: CasinoUser = {
+        name: "Eduardo",
+        age: 19,
+        nacionality: NACIONALITY.BRAZILIAN
+    }
+
+    const american: CasinoUser = {
+        name: "Edward",
+        age: 19,
+        nacionality: NACIONALITY.AMERICAN
+    }
+
+    const casinoUS: Casino = {
+        name: "Boston Casino",
+        location: LOCATION.EUA
+    }
+
+    const testResult = verifyAge(casinoUS, [brazilian, american])
+
+    expect(testResult.brazilians.unallowed).toContain("Eduardo");
+    expect(testResult.americans.unallowed).toContain("Edward");
+});
