@@ -236,3 +236,28 @@ test('two brazialians and two americans would like to play', () => {
     expect(testResult.brazilians.unallowed).toContain("Eduardo");
     expect(testResult.americans.unallowed).toContain("Edward");
 });
+
+test('two brazialians and two americans, checking array lenght', () => {
+    const brazilian1: CasinoUser = {
+        name: "Eduardo",
+        age: 19,
+        nacionality: NACIONALITY.BRAZILIAN
+    }
+
+    const american1: CasinoUser = {
+        name: "Edward",
+        age: 21,
+        nacionality: NACIONALITY.AMERICAN
+    }
+
+    const casinoUS: Casino = {
+        name: "Boston Casino",
+        location: LOCATION.EUA
+    }
+
+    const testResult = verifyAge(casinoUS, [brazilian1, brazilian1, american1, american1])
+
+    expect(testResult.brazilians.unallowed.length).toBeGreaterThan(1);
+    expect(testResult.americans.unallowed.length).toBeLessThan(1);
+    expect(testResult.americans.allowed.length).toBe(2);
+});
