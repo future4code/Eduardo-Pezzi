@@ -1,4 +1,4 @@
-import {validateCharacter, FIGHTER, performAttack} from '../src/exercicio1';
+import {validateCharacter, FIGHTER, performAttack, performAttack2} from '../src/exercicio1';
 
 describe("Testes exercícios Aula64 --->", ()=> {
 
@@ -101,6 +101,9 @@ describe("Testes exercícios Aula64 --->", ()=> {
         expect(testResult).toBe(true);
     })
 
+    // 3
+
+    // a) ***
     test('Testing performing atack', ()=>{
         const atacker: FIGHTER = {
             name: "Furious",
@@ -118,6 +121,29 @@ describe("Testes exercícios Aula64 --->", ()=> {
 
         const testResult = performAttack(atacker, defender)
 
-        expect(testResult).toBe(10);
+        expect(testResult).toBe(undefined);
+    });
+
+    // b
+    test('Testing performing atack2', ()=>{
+        const atacker: FIGHTER = {
+            name: "Furious",
+            life: 100,
+            defense: 80,
+            atack: 100
+        }
+
+        const defender: FIGHTER = {
+            name: "Wanted",
+            life: 100,
+            defense: 110,
+            atack: 85
+        }
+
+        const testResult = performAttack2(atacker, defender)
+
+        expect(testResult).toBe(undefined);
     })
+
+    function validateMock(input: any): performAttack2
 })
