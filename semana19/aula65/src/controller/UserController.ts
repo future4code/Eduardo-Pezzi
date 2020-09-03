@@ -38,12 +38,12 @@ export class UserController {
     }
   }
 
-  public async getUsersById(req: Request , res: Response){
+  public async getUserById(req: Request , res: Response){
     const id = req.params.id;
     const email = req.body.email;
     const password = req.body.password
     try {
-      const result = await UserController.UserBusiness.getUsersById(email, password, id);
+      const result = await UserController.UserBusiness.getUserById(email, password, id);
       res.status(200).send(result);
     } catch (error) {
       res.status(error.errorCode || 400).send({message: error.message});

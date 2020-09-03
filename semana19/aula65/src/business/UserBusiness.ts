@@ -76,7 +76,7 @@ export class UserBusiness {
     return { accessToken };
   }
 
-  public async getUsersById(email: string, password: string, id: string){
+  public async getUserById(email: string, password: string, id: string){
     if(!email || !password){
       throw new InvalidParameterError("Login Failed")
     }
