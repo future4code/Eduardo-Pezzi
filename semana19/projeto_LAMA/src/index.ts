@@ -1,5 +1,6 @@
-import express from 'express'
+import express from 'express';
 import { AddressInfo } from "net";
+import { userRouter } from './routes/userRoutes';
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -14,3 +15,5 @@ const server = app.listen(process.env.PORT || 3003, () => {
 		console.error(`Falha ao iniciar servidor.`);
 	}
 });
+
+app.use('/user', userRouter);

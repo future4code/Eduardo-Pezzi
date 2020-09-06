@@ -4,8 +4,8 @@ interface AuthenticationData {
     id: string;
 }
 
-export default abstract class Authenticator{
-    public static generateToken(input: AuthenticationData){
+export class Authenticator{
+    public  generateToken(input: AuthenticationData): string{
         return jwt.sign(
             input,
             process.env.JWT_KEY as string,

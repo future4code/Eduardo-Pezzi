@@ -1,15 +1,31 @@
-import {Request, Response} from 'express';
-import {BaseDatabase} from '../data/BaseDB';
-import {userBusiness} from '../business/userBusiness';
+import { Request, Response } from 'express';
+import IdGenerator from '../services/idGenerator';
+import {Authenticator} from '../services/Authenticator';
+import {UserDB} from '../data/UserDB'
+import { HashManager } from '../services/HashManager';
 
-export const signup = async(req: Request, res: Response) =>{
+export default async function signUp(req: Request , res: Response){
     try {
-        const {name, email, password} = req.body;
-        const token = new userBusiness().signUp(name, email, password);
+        const { name, email, password, role } = req.body
+        const id =  IdGenerator.execute();
 
-        res.status(200).send({message: 'Cadastro efetuado com sucesso!', token});
+        if(!name || !email || !password || !role){
+            res.status(400).send({
+                message: "Todos os campos são obrigatórios"})
+        }
+         
+        if(password.length < 6){
+            res.status(400).send({
+                message: "A senha precisa ter no mínimo 6 caracteres"
+            })
+        } 
+
+        const encryptedPassword = await new HashManager().hash(password)
+        await new UserDB().registerUser(id, name, email, encryptedPassword, role);
+        const token = new Authenticator().generateToken({id})
+        res.status(200).send({message: 'Usuário criado com sucesso', token})
+
     } catch (error) {
-        res.status(400).send({message: error.sqlMessage || error.message,});
+        res.status(400).send({message: error.sqlMessage || error.message});
     }
-    await BaseDatabase.destroyConnection();
 }
