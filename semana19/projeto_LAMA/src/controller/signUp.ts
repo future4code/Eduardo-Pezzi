@@ -22,7 +22,7 @@ export default async function signUp(req: Request , res: Response){
 
         const encryptedPassword = await new HashManager().hash(password)
         await new UserDB().registerUser(id, name, email, encryptedPassword, role);
-        const token = new Authenticator().generateToken({id})
+        const token = new Authenticator().generateToken({id, role})
         res.status(200).send({message: 'Usuário criado com sucesso', token})
 
     } catch (error) {

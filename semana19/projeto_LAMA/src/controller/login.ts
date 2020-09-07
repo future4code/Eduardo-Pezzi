@@ -12,6 +12,7 @@ export default async function login(req: Request, res: Response){
         const userData = await new UserDB().login(loginemail);
         const userMail = userData.email;
         const userPassword = userData.password
+        const role = userData.role
         const pwdCompared = await new HashManager().compare(password, userPassword);
 
         if(!loginemail || !password){
@@ -22,7 +23,7 @@ export default async function login(req: Request, res: Response){
             res.status(400).send({message: 'Email ou senha inválidos'})
         }
 
-        const token = new Authenticator().generateToken({id})
+        const token = new Authenticator().generateToken({id, role})
         res.status(200).send({message: 'Bem vindo, login efetuado com sucesso!', token})
 
     } catch (error) {

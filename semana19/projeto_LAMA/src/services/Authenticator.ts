@@ -1,7 +1,13 @@
 import * as jwt from 'jsonwebtoken';
 
+export enum USER_ROLES {
+    NORMAL = 'NORMAL',
+    ADMIN = 'ADMIN'
+}
+
 interface AuthenticationData {
-    id: string;
+    id: string,
+    role: USER_ROLES
 }
 
 export class Authenticator{

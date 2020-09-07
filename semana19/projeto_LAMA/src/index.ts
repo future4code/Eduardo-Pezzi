@@ -1,6 +1,7 @@
 import express from 'express';
 import { AddressInfo } from "net";
 import { userRouter } from './routes/userRoutes';
+import { bandsRouter } from './routes/bandsRouter';
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -17,3 +18,4 @@ const server = app.listen(process.env.PORT || 3003, () => {
 });
 
 app.use('/user', userRouter);
+app.use('/bands', bandsRouter);
