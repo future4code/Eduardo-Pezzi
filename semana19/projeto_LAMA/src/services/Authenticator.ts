@@ -13,7 +13,7 @@ export class Authenticator{
         )
     }
 
-     public static getTokenData(token: string): any{
+     public getTokenData(token: string): any{
         return jwt.verify(
             token,
             process.env.JWT_KEY as string 
