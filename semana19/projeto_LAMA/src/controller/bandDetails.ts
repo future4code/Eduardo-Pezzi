@@ -19,7 +19,7 @@ export default async function bandDetails(req: Request, res: Response){
             res.status(200).send(result)
         }
 
-        if(!bandName || !bandId){
+        if(!bandName && !bandId){
             res.status(400).send({message: "É necessário informar ID ou Nome da banda."})
         }
     } catch (error) {
