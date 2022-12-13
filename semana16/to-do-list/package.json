@@ -9,7 +9,7 @@
     "@types/mysql": "^2.15.15",
     "@types/typescript": "^2.0.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "typescript": "^3.9.7"
   },
   "devDependencies": {
